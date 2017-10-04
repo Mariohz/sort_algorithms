@@ -1,0 +1,31 @@
+
+n=10000
+
+def bubbleSort(arr):
+
+    operaciones=0
+    iteraciones=0
+    for j in range(0,n):
+        for i in range(0,n-j-1):
+            iteraciones=iteraciones+1   
+            if(arr[i] > arr[i+1]):
+                a=arr[i]
+                arr[i]=arr[i+1]
+                arr[i+1]=a
+                operaciones=operaciones+1
+    print "operaciones"
+    print operaciones
+    print "iteraciones"
+    print iteraciones
+
+
+archivo= open("rw.txt","r")
+contenido= archivo.read()
+
+#print contenido
+arr=contenido.split('\n')
+arr.pop(n)
+#print arr
+
+bubbleSort(arr)
+#print arr
