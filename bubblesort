@@ -1,0 +1,38 @@
+// 20 numeros aleatorios entre 0 y 99
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define N 20
+
+void bubbleSort(int a[N])
+{
+	k=0;
+	num=0;
+	for(int i=1; i<N-k;i++)
+	{
+		if(a[i]>a[i+1])
+		{	
+			num=a[i+1];
+			a[i+1]=a[i]
+			a[i]=num;
+			k++;
+		}		
+	}
+}
+
+int main()
+{
+	int arr[N]={0};
+	int i=0,v=0;
+	srand(time(NULL));
+
+	for(i=0;i<N;i++)
+	{
+		v= rand()%100;
+		arr[i]=v;
+		printf("%d\n",v);
+	}
+	bubbleSort(arr);
+
+	return 0;
+}
