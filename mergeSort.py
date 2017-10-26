@@ -1,7 +1,7 @@
 import random
-n=10000
+n=8
 
-def sort(arr,l,m,tamSubListas,tamSubListas2):
+def sort(arr,l,m,tamSubListas,tamSubListas2,operaciones):
     arr3=[]
     arr3=arr[:]
     ln=l
@@ -12,6 +12,7 @@ def sort(arr,l,m,tamSubListas,tamSubListas2):
         if arr3[l]<=arr3[m]:
             arr[ln]=arr3[l]
             ln=ln+1
+            operaciones[0]=operaciones[0]+1
             if l+1<m0:
                 l=l+1
             else:
@@ -19,9 +20,11 @@ def sort(arr,l,m,tamSubListas,tamSubListas2):
                     arr[ln]=arr3[m]
                     m=m+1
                     ln=ln+1   
+                    operaciones[0]=operaciones[0]+1
                 return arr 
         else:
             arr[ln]=arr3[m]
+            operaciones[0]=operaciones[0]+1
             ln=ln+1
             if m+1< m0+tamSubListas2:
                 m=m+1
@@ -30,10 +33,11 @@ def sort(arr,l,m,tamSubListas,tamSubListas2):
                     arr[ln]=arr3[l]
                     l=l+1
                     ln=ln+1
+                    operaciones[0]=operaciones[0]+1
                 return arr
     return arr
 
-def mergeSort(arr):
+def mergeSort(arr,iteraciones,operaciones): 
     i=0
     j=0
     k=0
@@ -54,17 +58,23 @@ def mergeSort(arr):
         l=0
         for j in range(0, entero/2):
             print(l) 
-            arr2=sort(arr2,l,l+k,k,k) 
+            iteraciones[0]=iteraciones[0]+1
+            arr2=sort(arr2,l,l+k,k,k,operaciones) 
             l=l+2*k 
            # print("arreglo", arr2)###hasta aqui hace para potencias de 2
-    print("residuo", residuo)
+    #print("residuo", residuo)
     if residuo>0:
+        iteraciones[0]=iteraciones[0]+1
         arr2=sort(arr2,0,k,k,residuo)
-    print(arr2) 
+    #print(arr2) 
 #####
 arr=[]
+iteraciones=[0]
+operaciones=[0]
 for i in range(n):
     v=random.randint(0,n)
     arr.append(v)
-print(arr)    
-mergeSort(arr)
+#print(arr)    
+mergeSort(arr,iteraciones,operaciones)
+print("iteraciones", iteraciones[0])
+print("operaciones", operaciones[0])

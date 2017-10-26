@@ -13,7 +13,7 @@ int potenciaEnteros(int base, int exponente)
 	return resultado;
 }
 
-int sort(int arr[N],int l,int m, int tamSubListas, int tamSubListas2)
+int sort(int arr[N],int l,int m, int tamSubListas, int tamSubListas2,int operaciones[])
 {	
 	int m0=0,l0=0,ln=0,i=0,j=0,c=0;
 	ln=l;
@@ -29,6 +29,7 @@ int sort(int arr[N],int l,int m, int tamSubListas, int tamSubListas2)
 		if(arr3[l]<=arr3[m])
 		{
 			arr[ln]=arr3[l];
+			operaciones[0]++;
 			ln++;
 			if(l+1<m0)
 			{
@@ -38,6 +39,7 @@ int sort(int arr[N],int l,int m, int tamSubListas, int tamSubListas2)
 			{
 				for(j=m;j<m0+tamSubListas2;j++)
 				{
+					operaciones[0]++;
 					arr[ln]=arr3[m];
 					ln++;
 					m++;
@@ -49,6 +51,7 @@ int sort(int arr[N],int l,int m, int tamSubListas, int tamSubListas2)
 		{//#
 			arr[ln]=arr3[m];
 			ln++;
+			operaciones[0]++;
 			if(m+1<m0+tamSubListas2)
 			{
 				m++;
@@ -57,6 +60,7 @@ int sort(int arr[N],int l,int m, int tamSubListas, int tamSubListas2)
 			{
 				for(j=l;j<l0+tamSubListas;j++)
 				{
+					operaciones[0]++;
 					arr[ln]=arr3[l];
 					l++;
 					ln++;
@@ -68,7 +72,7 @@ int sort(int arr[N],int l,int m, int tamSubListas, int tamSubListas2)
 	return 0;
 }
 
-void mergeSort(int arr[N])
+void mergeSort(int arr[N],int iteraciones[], int operaciones[])
 {	
 	int i=0,j=0,j1=0,k=0,c=0,l=0,z=0;
   	int entero=0,residuo=0;
@@ -94,36 +98,41 @@ void mergeSort(int arr[N])
 		for(j1=0;j1<entero/2;j1++)
 		{
         	//printf("%d",l);
-			sort(arr,l,l+k,k,k);
+			iteraciones[0]++;
+			sort(arr,l,l+k,k,k,operaciones);
 			l=l+2*k;
         	//for(z=0;z<N;z++)printf("%d",arr[z]);//potencias de dos
-            printf("\n");
+            //printf("\n");
 		}
 	}
 	
 	if(residuo>0)
-	{
-	 	sort(arr,0,k,k,residuo);
+	{	
+		iteraciones[0]++;
+	 	sort(arr,0,k,k,residuo,operaciones);
 	}
 
-printf("Ordenado");
-for(i=0;i<N;i++)printf("%d ",arr[i]);
-      
+//printf("Ordenado");
+//for(i=0;i<N;i++)printf("%d ",arr[i]);      
 }
-
 
 int main()
 {   
 	int arr[N]={0};
 	int i=0,v=0;
+	int iteraciones[1];
+    int operaciones[1];
+    iteraciones[0]=0;
+	operaciones[0]=0;
 	srand(time(NULL));
 	for(i=0;i<N;i++)
 	{
 		v=rand()%N;
 		arr[i]=v;
-		printf("%d ",v);
+		//printf("%d ",v);
 	}
     printf("\n");
-    mergeSort(arr);
-	
+    mergeSort(arr,iteraciones,operaciones);	
+	printf("iteraciones %d",iteraciones[0]);
+	printf("operaciones %d",operaciones[0]);
 }
