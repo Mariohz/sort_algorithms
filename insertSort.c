@@ -8,13 +8,14 @@
 void insertSort(int a[N])
 {
 	int i=0,j=0,k=0,flag=0;
+	int iteraciones=0,operaciones=0;
 	int b[N];
 	for(i=0;i<N;i++){
 	b[i]=a[i];}
 
-
 	for(i=1;i<N;i++)
 	{
+	iteraciones++;
 		flag=0;
 		for(j=0;j<i;j++)
 		{		
@@ -23,17 +24,23 @@ void insertSort(int a[N])
 				for(k=i;j<k;k--)
 				{	
 					b[k]=b[k-1];
+					operaciones++;
 				}
 				b[j]=a[i];
+				operaciones++;
 				flag=1;
 				break;
-			}
-			
+			}			
 		}	
-		if(flag==0)b[i]=a[i];
+		if(flag==0)
+		{
+			b[i]=a[i];
+			operaciones++;
+		}
 	}
-	
 	for(i=0;i<N;i++)printf("%d ",b[i]);
+	printf("\n iteraciones %d \n", iteraciones);
+	printf("operaciones %d", operaciones);
 }
 
 int main()
