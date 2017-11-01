@@ -1,5 +1,5 @@
 import random
-n=10
+n=10000
 
 def insertSort(arr):
     iteraciones=0
@@ -24,12 +24,12 @@ def insertSort(arr):
    
     print("iteraciones", iteraciones)
     print("operaciones", operaciones)
-    print(arr2)
+   # print(arr2)
 
 arr=[]
 for i in range(n):
     v=random.randint(0,n)
     arr.append(v)
-print(arr)
+#print(arr)
 insertSort(arr)
 

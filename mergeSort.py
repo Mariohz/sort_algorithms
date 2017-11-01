@@ -1,5 +1,5 @@
 import random
-n=8
+n=10000
 
 def sort(arr,l,m,tamSubListas,tamSubListas2,operaciones):
     arr3=[]
@@ -57,7 +57,7 @@ def mergeSort(arr,iteraciones,operaciones):
         residuo=n%k# tamano de lista residuo
         l=0
         for j in range(0, entero/2):
-            print(l) 
+           # print(l) 
             iteraciones[0]=iteraciones[0]+1
             arr2=sort(arr2,l,l+k,k,k,operaciones) 
             l=l+2*k 
@@ -65,7 +65,7 @@ def mergeSort(arr,iteraciones,operaciones):
     #print("residuo", residuo)
     if residuo>0:
         iteraciones[0]=iteraciones[0]+1
-        arr2=sort(arr2,0,k,k,residuo)
+        arr2=sort(arr2,0,k,k,residuo,operaciones)
     #print(arr2) 
 #####
 arr=[]

@@ -133,6 +133,6 @@ int main()
 	}
     printf("\n");
     mergeSort(arr,iteraciones,operaciones);	
-	printf("iteraciones %d",iteraciones[0]);
-	printf("operaciones %d",operaciones[0]);
+	printf("iteraciones %d \n",iteraciones[0]);
+	printf("operaciones %d \n",operaciones[0]);
 }

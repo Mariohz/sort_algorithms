@@ -3,7 +3,7 @@
 #include<stdlib.h>
 #include<time.h>
 
-#define N 10
+#define N 10000
 
 void insertSort(int a[N])
 {
@@ -38,9 +38,9 @@ void insertSort(int a[N])
 			operaciones++;
 		}
 	}
-	for(i=0;i<N;i++)printf("%d ",b[i]);
+	//for(i=0;i<N;i++)printf("%d ",b[i]);
 	printf("\n iteraciones %d \n", iteraciones);
-	printf("operaciones %d", operaciones);
+	printf("operaciones %d \n", operaciones);
 }
 
 int main()
@@ -52,7 +52,7 @@ int main()
 	{
 		v=rand()%N;
 		arr[i]=v;
-		printf("%d ",v);
+		//printf("%d ",v);
 	
 	}
 	printf("\n");

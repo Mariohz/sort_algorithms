@@ -1,6 +1,5 @@
 import random
-n=10
-
+n=10000
 
 def quickSort(arr, low, high,iteraciones,operaciones):
     pi=0
@@ -34,8 +33,8 @@ operaciones=[0]
 for i in range(n):
     v=random.randint(0,n)
     arr.append(v)
-print(arr)
+#print(arr)
 quickSort(arr,0,n-1,iteraciones,operaciones)
-print(arr)
+#print(arr)
 print("Iteraciones", iteraciones[0])
 print("Operaciones", operaciones[0])

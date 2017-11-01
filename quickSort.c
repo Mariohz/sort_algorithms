@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<math.h>
-#define N 10
+#define N 1000
 
 void quickSort(int arr[],int low,int high,int iteraciones[],int operaciones[])
 {	
